@@ -1,0 +1,25 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore environment variables
+.env
+
+# Ignore logs
+logs/
+*.log
+npm-debug.log*
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore build/output folders (if any)
+dist/
+build/
+
+# Ignore editor/IDE settings
+.vscode/
+.idea/
+
+# Ignore temporary files
+*.swp
