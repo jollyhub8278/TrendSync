@@ -7,9 +7,9 @@ import {
 } from "react-router-dom";
 import MainLayout from "./components/layout/MainLayout";
 import LoginPage from "./pages/Login";
+import ConnectedAccounts from "./pages/ConnectedAccounts"; // 👈 import the new page
 
 const App = () => {
-  //user holds the current logged-in user's data (or null if logged out).
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -35,8 +35,18 @@ const App = () => {
         <Route
           path="/login"
           element={
-            user ? <Navigate to="/" /> : <LoginPage setUser={setUser} />
+            user ? (
+              <Navigate to="/connected-accounts" />
+            ) : (
+              <LoginPage setUser={setUser} />
+            )
           }
+        />
+
+        {/* ✅ Route to show connected accounts */}
+        <Route
+          path="/connected-accounts"
+          element={user ? <ConnectedAccounts /> : <Navigate to="/login" />}
         />
       </Routes>
     </Router>
