@@ -8,7 +8,7 @@ import axios from "axios";
 
 const Calendar = () => {
   const getImageUrl = (url) => {
-    return url.startsWith("http") ? url : `http://localhost:5000${url}`;
+    return url.startsWith("http") ? url : `https://trendsync-1d7b.onrender.com${url}`;
   };
 
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -21,7 +21,7 @@ const Calendar = () => {
   const fetchPosts = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/posts/user", {
+      const res = await axios.get("https://trendsync-1d7b.onrender.com/api/posts/user", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
