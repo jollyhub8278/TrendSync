@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import MainLayout from "./components/layout/MainLayout";
 import LoginPage from "./pages/Login";
-// import ConnectedAccounts from "./pages/ConnectedAccounts";
+import ConnectAccounts from "./pages/ConnectAccounts";
 // import ConnectFacebook from "./routes/connectFacebook";
 
 const App = () => {
@@ -43,19 +43,17 @@ const App = () => {
             )
           }
         /> */}
-        {/* <Route
-          path="/connected-accounts"
-          element={user ? <ConnectedAccounts /> : <Navigate to="/login" />}
-        />
         <Route
+          path="/connect-accounts"
+          element={user ? <ConnectAccounts /> : <Navigate to="/login" />}
+        />
+        {/* <Route
           path="/connect-facebook"
           element={user ? <ConnectFacebook /> : <Navigate to="/login" />}
         /> */}
-         <Route
+        <Route
           path="/login"
-          element={
-            user ? <Navigate to="/" /> : <LoginPage setUser={setUser} />
-          }
+          element={user ? <Navigate to="/" /> : <LoginPage setUser={setUser} />}
         />
       </Routes>
     </Router>

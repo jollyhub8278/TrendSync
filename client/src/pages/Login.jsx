@@ -66,7 +66,7 @@ function LoginPage({ setUser }) {
       // Set user globally 
       setUser(user);
       // navigate("/connect-facebook");
-      navigate("/");
+      navigate('/connect-accounts');
     } catch (err) {
       console.error("Authentication error:", err.response?.data || err.message);
       alert(err.response?.data?.error || "Authentication failed");
