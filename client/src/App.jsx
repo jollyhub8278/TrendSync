@@ -7,8 +7,8 @@ import {
 } from "react-router-dom";
 import MainLayout from "./components/layout/MainLayout";
 import LoginPage from "./pages/Login";
-import ConnectedAccounts from "./pages/ConnectedAccounts";
-import ConnectFacebook from "./routes/connectFacebook";
+// import ConnectedAccounts from "./pages/ConnectedAccounts";
+// import ConnectFacebook from "./routes/connectFacebook";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -33,7 +33,7 @@ const App = () => {
             )
           }
         />
-        <Route
+        {/* <Route
           path="/login"
           element={
             user ? (
@@ -42,14 +42,20 @@ const App = () => {
               <LoginPage setUser={setUser} />
             )
           }
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/connected-accounts"
           element={user ? <ConnectedAccounts /> : <Navigate to="/login" />}
         />
         <Route
           path="/connect-facebook"
           element={user ? <ConnectFacebook /> : <Navigate to="/login" />}
+        /> */}
+         <Route
+          path="/login"
+          element={
+            user ? <Navigate to="/" /> : <LoginPage setUser={setUser} />
+          }
         />
       </Routes>
     </Router>

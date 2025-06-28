@@ -63,9 +63,10 @@ function LoginPage({ setUser }) {
       localStorage.setItem("token", token);
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-      // Set user globally and redirect to connected accounts
+      // Set user globally 
       setUser(user);
-      navigate("/connect-facebook");
+      // navigate("/connect-facebook");
+      navigate("/");
     } catch (err) {
       console.error("Authentication error:", err.response?.data || err.message);
       alert(err.response?.data?.error || "Authentication failed");

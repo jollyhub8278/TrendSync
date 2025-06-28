@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 
 import Dashboard from "../../pages/Dashboard";
+import CreatePost from "../../pages/CreatePost";
 
 const MainLayout = ({ user, setUser }) => {
   const [currentPage, setCurrentPage] = useState("dashboard");
@@ -39,11 +40,11 @@ const MainLayout = ({ user, setUser }) => {
     //     title: "Settings",
     //     subtitle: "Configure your account preferences",
     //   },
-    //   "create-post": {
-    //     component: <CreatePost />,
-    //     title: "Create New Post",
-    //     subtitle: "Draft and schedule your next content piece",
-    //   },
+      "create-post": {
+        component: <CreatePost />,
+        title: "Create New Post",
+        subtitle: "Draft and schedule your next content piece",
+      },
     };
 
     return pageMap[currentPage] || pageMap["dashboard"];
