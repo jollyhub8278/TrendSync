@@ -58,9 +58,36 @@ git clone https://github.com/jollyhub8278/TrendSync.git
 cd TrendSync
 ```
 
----
 
-### 2️⃣ Install Root Dependencies (if any)
+### 2️⃣ Install Root Dependencies 
 
 ```bash
 npm install
+```
+
+### 3️⃣ Frontend Setup
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+### 4️⃣ Backend Setup
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+### 5️⃣ Environment Configuration
+
+```env
+MONGO_URI=mongodb://<DB_HOST>:<DB_PORT>/<DB_NAME>
+JWT_SECRET=your_jwt_secret
+PORT=5000
+```
+
+
+
