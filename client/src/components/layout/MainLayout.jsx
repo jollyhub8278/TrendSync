@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 
 import Dashboard from "../../pages/Dashboard";
 import CreatePost from "../../pages/CreatePost";
+import Settings from "../../pages/Settings";
 
 const MainLayout = ({ user, setUser }) => {
   const [currentPage, setCurrentPage] = useState("dashboard");
@@ -35,11 +36,11 @@ const MainLayout = ({ user, setUser }) => {
     //     title: 'Team Management',
     //     subtitle: 'Manage your team members and permissions',
     //   },
-    //   settings: {
-    //     component: <Settings />,
-    //     title: "Settings",
-    //     subtitle: "Configure your account preferences",
-    //   },
+      settings: {
+        component: <Settings />,
+        title: "Settings",
+        subtitle: "Configure your account preferences",
+      },
       "create-post": {
         component: <CreatePost />,
         title: "Create New Post",
