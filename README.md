@@ -56,6 +56,7 @@ Ensure the following are installed on your machine:
 ```bash
 git clone https://github.com/jollyhub8278/TrendSync.git
 cd TrendSync
+```
 
 ---
 
