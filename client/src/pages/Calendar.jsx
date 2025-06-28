@@ -7,24 +7,35 @@ import { useEffect } from "react";
 import axios from "axios";
 
 const Calendar = () => {
+  const getImageUrl = (url) => {
+    return url.startsWith("http") ? url : `http://localhost:5000${url}`;
+  };
+
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [viewType, setViewType] = useState("week");
   const [filterPlatforms, setFilterPlatforms] = useState([]);
   const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const res = await axios.get("http://localhost:5000/api/posts");
-        setPosts(res.data);
-      } catch (err) {
-        console.error("Error fetching posts:", err);
-      }
-    };
+ useEffect(() => {
+  const fetchPosts = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await axios.get("http://localhost:5000/api/posts/user", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setPosts(res.data);
+      console.log("Loaded posts:", res.data);
+    } catch (err) {
+      console.error("Error fetching posts:", err);
+    }
+  };
 
-    fetchPosts();
-  }, []);
+  fetchPosts();
+}, []);
+
 
   const prevMonth = () => {
     setCurrentMonth(
@@ -46,19 +57,18 @@ const Calendar = () => {
     }
   };
 
-  const getPostsForDate = (date) => {
-    const filteredPosts = posts.filter((post) => {
-      const postDate = new Date(post.scheduledFor);
-      return (
-        postDate.getDate() === date.getDate() &&
-        postDate.getMonth() === date.getMonth() &&
-        postDate.getFullYear() === date.getFullYear() &&
-        (filterPlatforms.length === 0 ||
-          post.platforms.some((platform) => filterPlatforms.includes(platform)))
-      );
-    });
-    return filteredPosts;
-  };
+const getPostsForDate = (date) => {
+  return posts.filter((post) => {
+    const postDate = new Date(post.scheduledFor);
+    console.log("Comparing:", postDate.toDateString(), "==", date.toDateString());
+    return (
+      postDate.toDateString() === date.toDateString() &&
+      (filterPlatforms.length === 0 ||
+        post.platforms.some((platform) => filterPlatforms.includes(platform)))
+    );
+  });
+};
+
 
   const generateDays = () => {
     const days = [];
@@ -142,10 +152,11 @@ const Calendar = () => {
     return platform ? platform.color : "bg-gray-500";
   };
 
+
   const renderPostCard = (post) => {
     return (
       <div
-        key={post.id}
+        key={post._id} // ✅ Use _id instead of id (MongoDB default)
         className="p-2 mb-2 rounded-md border border-gray-200 bg-white shadow-sm hover:shadow transition-shadow duration-200 cursor-move"
       >
         <div className="flex items-center justify-between mb-1">
@@ -172,13 +183,18 @@ const Calendar = () => {
         <div className="flex items-start">
           {post.mediaUrls && post.mediaUrls.length > 0 && (
             <img
-              src={post.mediaUrls[0]}
+              src={getImageUrl(post.mediaUrls[0])}
               alt="Post media"
               className="w-8 h-8 object-cover rounded-sm mr-2 flex-shrink-0"
             />
           )}
 
-          <p className="text-xs text-gray-700 line-clamp-2">{post.caption}</p>
+          <p
+            className="text-xs text-gray-700 line-clamp-2"
+            title={post.caption}
+          >
+            {post.caption}
+          </p>
         </div>
       </div>
     );

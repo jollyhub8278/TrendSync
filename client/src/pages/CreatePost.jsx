@@ -140,37 +140,53 @@ const CreatePost = () => {
     );
   };
 
-  const handleSubmitPost = async () => {
-    if (
-      !caption ||
-      !selectedPlatforms.length ||
-      !uploadedUrls.length ||
-      !date ||
-      !time
-    ) {
-      alert("Please fill all required fields before scheduling.");
-      return;
-    }
+const handleSubmitPost = async () => {
+  if (
+    !caption ||
+    !selectedPlatforms.length ||
+    !uploadedUrls.length ||
+    !date ||
+    !time
+  ) {
+    alert("Please fill all required fields before scheduling.");
+    return;
+  }
 
-    const postData = {
-      caption,
-      hashtags,
-      platforms: selectedPlatforms,
-      mediaUrls: uploadedUrls,
-      scheduledFor: new Date(`${date}T${time}`),
-    };
-
-    try {
-      setLoading(true);
-      alert("Post scheduled successfully!");
-      // Optionally reset form here
-    } catch (err) {
-      console.error("Failed to schedule post:", err);
-      alert("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+  const postData = {
+    caption,
+    hashtags,
+    platforms: selectedPlatforms,
+    mediaUrls: uploadedUrls,
+    scheduledFor: new Date(`${date}T${time}`),
   };
+
+  try {
+    setLoading(true);
+    const token = localStorage.getItem("token"); // Or however your auth works
+
+    const res = await axios.post("http://localhost:5000/api/posts", postData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    alert("Post scheduled successfully!");
+    setStep(1); // Reset to Step 1
+    setCaption("");
+    setUploadedUrls([]);
+    setSelectedFiles([]);
+    setHashtags([]);
+    setSelectedPlatforms([]);
+    setDate("");
+    setTime("");
+  } catch (err) {
+    console.error("Failed to schedule post:", err);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   // Step 1: Upload Media
   const renderStep1 = () => {
