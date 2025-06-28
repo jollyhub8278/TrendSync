@@ -94,6 +94,7 @@ PORT=5000
 ### 🎨 UI Preview
 
 ![Login/Signup Page](client/src/assets/login%20page.png)
+![Dashboard](client/src/assets/dashboard.png)
 
 
 
