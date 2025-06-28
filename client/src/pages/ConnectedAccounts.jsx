@@ -14,7 +14,7 @@ const ConnectedAccounts = () => {
         return;
       }
       const res = await axios.get(
-        "http://localhost:5000/api/social/facebook/accounts",
+        "https://trendsync-1d7b.onrender.com/api/social/facebook/accounts",
         {
           headers: {
             Authorization: `Bearer ${token}`,

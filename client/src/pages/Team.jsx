@@ -25,7 +25,7 @@ const Team = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/api/team/invite",
+        "https://trendsync-1d7b.onrender.com/api/team/invite",
         { email: emailInput, role: roleInput },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -85,7 +85,7 @@ const Team = () => {
     const fetchMembers = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/team", {
+        const res = await axios.get("https://trendsync-1d7b.onrender.com/api/team", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setTeamMembers(res.data);

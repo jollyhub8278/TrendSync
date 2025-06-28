@@ -19,7 +19,7 @@ const Dashboard = ({onChangePage}) => {
 //   useEffect(() => {
 //   const fetchAIInsights = async () => {
 //     try {
-//       const { data } = await axios.post("http://localhost:5000/api/ai/captions", {
+//       const { data } = await axios.post("https://trendsync-1d7b.onrender.com/api/ai/captions", {
 //         topic: "improving social media engagement",
 //       });
 //       setAiRecommendations(data.captions.map((content, i) => ({

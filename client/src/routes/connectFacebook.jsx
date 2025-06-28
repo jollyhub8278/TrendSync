@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 const ConnectFacebook = () => {
   useEffect(() => {
     // Redirect to backend route that starts Facebook login
-    window.location.href = "http://localhost:5000/api/social/facebook/login";
+    window.location.href = "https://trendsync-1d7b.onrender.com/api/social/facebook/login";
   }, []);
 
   return <p>Redirecting to Facebook login...</p>;

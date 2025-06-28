@@ -53,14 +53,14 @@ const CreatePost = () => {
   //   const fetchAIContent = async () => {
   //     try {
   //       const { data } = await axios.post(
-  //         "http://localhost:5000/api/ai/captions",
+  //         "https://trendsync-1d7b.onrender.com/api/ai/captions",
   //         {
   //           topic: "digital marketing", // you can make this dynamic later
   //         }
   //       );
   //       setSuggestedCaptions(data.captions);
 
-  //       const res = await axios.post("http://localhost:5000/api/ai/hashtags", {
+  //       const res = await axios.post("https://trendsync-1d7b.onrender.com/api/ai/hashtags", {
   //         topic: "digital marketing",
   //       });
   //       setSuggestedHashtags(res.data.hashtags);
@@ -164,7 +164,7 @@ const handleSubmitPost = async () => {
     setLoading(true);
     const token = localStorage.getItem("token"); // Or however your auth works
 
-    const res = await axios.post("http://localhost:5000/api/posts", postData, {
+    const res = await axios.post("https://trendsync-1d7b.onrender.com/api/posts", postData, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -199,7 +199,7 @@ const handleSubmitPost = async () => {
 
       try {
         const res = await axios.post(
-          "http://localhost:5000/api/upload",
+          "https://trendsync-1d7b.onrender.com/api/upload",
           formData,
           {
             headers: { "Content-Type": "multipart/form-data" },

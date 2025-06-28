@@ -39,8 +39,8 @@ function LoginPage({ setUser }) {
 
     try {
       const endpoint = isLogin
-        ? "http://localhost:5000/api/auth/login"
-        : "http://localhost:5000/api/auth/register";
+        ? "https://trendsync-1d7b.onrender.com/api/auth/login"
+        : "https://trendsync-1d7b.onrender.com/api/auth/register";
 
       const payload = isLogin
         ? {
