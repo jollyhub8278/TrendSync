@@ -20,7 +20,7 @@ Built with the **MERN Stack** — MongoDB, Express.js, React, and Node.js.
 | Backend     | Node.js, Express                            |
 | Database    | MongoDB                                     |
 | Auth        | JWT, Passport.js, OAuth (Google, Facebook)  |
-| Deployment  | Vercel / Railway / Render *(recommended)*   |
+| Deployment  | Render(https://trendsync0.onrender.com)   |
 
 ---
 
