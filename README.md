@@ -89,5 +89,11 @@ JWT_SECRET=your_jwt_secret
 PORT=5000
 ```
 
+---
+
+### 🎨 UI Preview
+
+!"[Login/Signup Page"](client\src\assets\login page.png)
+
 
 
