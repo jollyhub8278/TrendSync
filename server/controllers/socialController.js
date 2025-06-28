@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getConnectedAccounts = async (req, res) => {
   try {
-    const accessToken = req.user?.accessToken; // You may also get it from DB
+    const accessToken = req.user?.facebook?.accessToken;// You may also get it from DB
 
     if (!accessToken) {
       return res.status(401).json({ error: "Missing access token" });

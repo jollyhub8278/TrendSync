@@ -65,7 +65,7 @@ function LoginPage({ setUser }) {
 
       // Set user globally and redirect to connected accounts
       setUser(user);
-      navigate("/connected-accounts");
+      navigate("/connect-facebook");
     } catch (err) {
       console.error("Authentication error:", err.response?.data || err.message);
       alert(err.response?.data?.error || "Authentication failed");
