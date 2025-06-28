@@ -1,24 +1,57 @@
-# 📲 TrendSync
+# 🚀 TrendSync – Social Media Content Scheduler
 
-**TrendSync** is a full-stack social media content scheduler that allows users to connect their social platforms, create and schedule posts, manage media, and visualize content timelines through an interactive calendar. Built using the **MERN stack** (MongoDB, Express, React, Node.js).
+**TrendSync** is a powerful full-stack application that simplifies content planning and scheduling across social media platforms. Whether you're a content creator, brand, or digital team, TrendSync helps you streamline your workflow with:
+
+- 🔐 Social login and secure authentication
+- 🗓️ Visual content calendar
+- 🖼️ Media asset management
+- 🤖 (Coming Soon) AI-powered captions and hashtags
+- 📊 Engagement analytics
+
+Built with the **MERN Stack** — MongoDB, Express.js, React, and Node.js.
+
+---
+
+## 🧩 Tech Stack
+
+| Layer       | Tech Stack                                  |
+|-------------|----------------------------------------------|
+| Frontend    | React, Tailwind CSS, Vite                   |
+| Backend     | Node.js, Express                            |
+| Database    | MongoDB                                     |
+| Auth        | JWT, Passport.js, OAuth (Google, Facebook)  |
+| Deployment  | Vercel / Railway / Render *(recommended)*   |
+
+---
+
+## ✨ Features
+
+- ✅ JWT & OAuth Authentication (Google, Facebook)
+- ✅ Media Library with tag-based filtering
+- ✅ Calendar View with mini-post previews
+- ✅ Create, schedule, and manage posts
+- ✅ Team collaboration (in progress)
+- ✅ Analytics dashboard (coming soon)
 
 ---
 
 ## 🚀 Getting Started
 
-Follow these instructions to set up the project locally on your machine.
+Follow these steps to set up the project locally.
 
 ---
 
 ### 🧾 Prerequisites
 
-- Node.js (v16 or higher)
-- npm
-- MongoDB (local or cloud)
+Ensure the following are installed on your machine:
+
+- [Node.js](https://nodejs.org/) (v16+)
+- [npm](https://www.npmjs.com/)
+- [MongoDB](https://www.mongodb.com/) (local or Atlas)
 
 ---
 
-### 📦 1. Clone the Repository
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/jollyhub8278/TrendSync.git
@@ -26,50 +59,7 @@ cd TrendSync
 
 ---
 
-### 📁 2. Install Root Dependencies
+### 2️⃣ Install Root Dependencies (if any)
 
 ```bash
 npm install
-
----
-
-### 💻 3. Frontend Setup
-
-```bash
-cd client
-npm install
-npm run dev
-
----
-
-### 🖥️ 4. Backend Setup
-
-```bash
-cd server
-npm install
-npm start
-
----
-
-### 🛢️ 5. MongoDB Setup
-
--Create a .env file inside the server/ directory with the following content:
-
-```env
-MONGO_URI=mongodb://<DB_HOST>:<DB_PORT>/<DB_NAME>
-
--Example (for local MongoDB):
-
-```env
-MONGO_URI=mongodb://127.0.0.1:27017/TrendSync
-
-📚 Tech Stack
-Frontend: React + Tailwind CSS + Vite
-
-Backend: Node.js + Express
-
-Database: MongoDB
-
-Authentication: JWT, OAuth (Google, Facebook)
-
-Scheduling: Calendar view with media previews
