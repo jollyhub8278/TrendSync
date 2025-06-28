@@ -10,9 +10,12 @@ import passport from 'passport';
 import fs from 'fs';
 
 //Routes
+import postRoutes from "./routes/postRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import teamRoutes from './routes/teamRoutes.js';
+import analyticsRoutes from './routes/analyticsRoutes.js';
 import socialAuthRoutes from './routes/socialAuthRoutes.js';
-import "./passport/facebookStrategy.js";
+// import aiRoutes from "./routes/aiRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -30,7 +33,11 @@ app.use(passport.session());
 app.use(express.json());
 app.use(cors());
 app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
 app.use("/api/social", socialAuthRoutes);
+app.use("/api/team", teamRoutes);
+app.use("/api/analytics", analyticsRoutes);
+// app.use("/api/ai", aiRoutes);
 
 // Ensure uploads folder exists
 const uploadsDir = path.join(process.cwd(), 'uploads');

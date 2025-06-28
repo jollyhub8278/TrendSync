@@ -3,8 +3,12 @@ import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 
 import Dashboard from "../../pages/Dashboard";
-import CreatePost from "../../pages/CreatePost";
+import Calendar from "../../pages/Calendar";
+import ContentLibrary from '../../pages/ContentLibrary';
+import Analytics from '../../pages/Analytics';
+import Team from '../../pages/Team';
 import Settings from "../../pages/Settings";
+import CreatePost from "../../pages/CreatePost";
 
 const MainLayout = ({ user, setUser }) => {
   const [currentPage, setCurrentPage] = useState("dashboard");
@@ -16,26 +20,26 @@ const MainLayout = ({ user, setUser }) => {
         title: "Dashboard",
         subtitle: "Overview of your social media activity",
       },
-    //   calendar: {
-    //     component: <Calendar />,
-    //     title: "Content Calendar",
-    //     subtitle: "Schedule and manage your upcoming posts",
-    //   },
-    //   "content-library": {
-    //     component: <ContentLibrary />,
-    //     title: 'Content Library',
-    //     subtitle: 'Manage your media assets and content',
-    //   },
-    //   analytics: {
-    //     component: <Analytics />,
-    //     title: 'Analytics',
-    //     subtitle: 'Track performance across your social platforms',
-    //   },
-    //   team: {
-    //     component: <Team />,
-    //     title: 'Team Management',
-    //     subtitle: 'Manage your team members and permissions',
-    //   },
+      calendar: {
+        component: <Calendar />,
+        title: "Content Calendar",
+        subtitle: "Schedule and manage your upcoming posts",
+      },
+      "content-library": {
+        component: <ContentLibrary />,
+        title: 'Content Library',
+        subtitle: 'Manage your media assets and content',
+      },
+      analytics: {
+        component: <Analytics />,
+        title: 'Analytics',
+        subtitle: 'Track performance across your social platforms',
+      },
+      team: {
+        component: <Team />,
+        title: 'Team Management',
+        subtitle: 'Manage your team members and permissions',
+      },
       settings: {
         component: <Settings />,
         title: "Settings",
